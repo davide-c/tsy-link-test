@@ -1,0 +1,27 @@
+{
+  "name": "tsyringe-link",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:main": "npm link @tsy-link/utils && npm link @tsy-link/pkg && npm run build --prefix=./main",
+    "build:w:main": "npm run watch --prefix=./main",
+    "compile:pkg": "npm link @tsy-link/utils && npm run compile --prefix=./pkg && cd pkg && npm link",
+    "compile:w:pkg": "npm run compile:watch --prefix=./pkg",
+    "compile:utils": "npm run compile --prefix=./utils && cd utils && npm link",
+    "compile:w:utils": "npm run compile:watch --prefix=./utils",
+    "run": "npm run run --prefix=./main",
+    "clean": "npm run clean --prefix=./main && npm run clean --prefix=./pkg",
+    "wipe": "npm run wipe --prefix=./main && npm run wipe --prefix=./pkg && npm run wipe --prefix=./utils",
+    "install": "npm i --prefix=./main && npm i --prefix=./pkg && npm i --prefix=./utils",
+    "build": "npm run compile:utils && npm run compile:pkg && npm run build:main",
+    "watch": "concurrently \"npm run build:w:main\" \"npm run compile:w:pkg\" \"npm run compile:w:utils\"",
+    "init": "npm run wipe && npm run install && npm run build",
+    "dev": "concurrently \"npm run watch\" \"npm run run\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}

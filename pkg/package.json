@@ -1,0 +1,21 @@
+{
+  "name": "@tsy-link/pkg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w --preserveWatchOutput -p tsconfig.json",
+    "compile": "tsc -p tsconfig.build.json",
+    "compile:watch": "tsc -w --preserveWatchOutput -p tsconfig.build.json",
+    "clean": "rm -rf ./lib",
+    "wipe": "npm run clean && rm -rf node_modules && rm -f package-lock.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^3.9.5"
+  }
+}
