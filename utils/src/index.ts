@@ -1,1 +1,1 @@
-export const utils = {};
+export { Config } from './Config';

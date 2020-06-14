@@ -1,21 +1,34 @@
 import 'reflect-metadata';
-import { SomeService, AnotherService } from '@tsy-link/pkg';
+import { SomeService, AnotherService, setup } from '@tsy-link/pkg';
 import { container, injectable } from '@tsy-link/utils/lib/tsyringe';
+import { Config } from '@tsy-link/utils';
 
 @injectable()
 class RequiresService {
-  constructor(private s: SomeService) {}
-
-  get service() {
-    console.log('>', container.resolve(SomeService));
-    console.log('>', container.resolve(AnotherService));
-    return this.s;
-  }
+  constructor(
+    private s: SomeService,
+    private as: AnotherService,
+    private config: Config
+  ) {}
 }
 
-const rs0 = container.resolve(RequiresService);
-console.log(rs0);
-rs0.service.run();
+setup();
 
-const s1 = container.resolve(SomeService);
-console.log('s1:', s1);
+container.register(Config, {
+  useFactory: () => new Config({ test: true }),
+});
+
+const s0 = container.resolve(SomeService);
+const a0 = container.resolve(AnotherService);
+const rs0 = container.resolve(RequiresService);
+
+console.log(s0, a0, rs0);
+
+// childContainer
+const childContainer = container.createChildContainer();
+
+const s1 = childContainer.resolve(SomeService);
+const a1 = childContainer.resolve(AnotherService);
+const rs1 = childContainer.resolve(RequiresService);
+
+console.log(s1, a1, rs1);
