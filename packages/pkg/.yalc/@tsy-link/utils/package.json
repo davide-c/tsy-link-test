@@ -1,6 +1,6 @@
 {
-  "name": "@tsy-link/pkg",
-  "version": "1.0.0",
+  "name": "@tsy-link/utils",
+  "version": "1.0.0+7a0cdb0a",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -18,8 +18,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@tsy-link/utils": "file:~/.yalc/packages/@tsy-link/utils/1.0.0",
+    "i": "^0.3.6",
+    "npm": "^6.14.5",
     "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.3.0",
     "typescript": "^3.9.5"
   }
 }

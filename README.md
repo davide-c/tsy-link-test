@@ -1,3 +1,3 @@
-```npm i && npm run init```
+`nvm use system\n npm i && npm run init`
 
-```npm run dev```
+`npm run dev`

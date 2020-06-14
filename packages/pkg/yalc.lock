@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "packages": {
+    "@tsy-link/utils": {
+      "signature": "7a0cdb0a6acafdc1ea3eeffaad6508b4",
+      "file": true,
+      "replaced": "0.0.0"
+    }
+  }
+}
