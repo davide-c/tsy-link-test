@@ -1,3 +1,5 @@
-`nvm use system\n npm i && npm run init`
+`npm run test`
 
-`npm run dev`
+https://github.com/npm/npm/issues/20185
+https://gist.github.com/morewry/d3419a38d74590493042544d4afa49a7
+https://rushjs.io/pages/advanced/npm_doppelgangers/
