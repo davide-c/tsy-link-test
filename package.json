@@ -13,15 +13,28 @@
     "run": "npm run run --prefix=./main",
     "clean": "npm run clean --prefix=./main && npm run clean --prefix=./packages/pkg && npm run clean --prefix=./packages/utils",
     "wipe": "npm run wipe --prefix=./main && npm run wipe --prefix=./packages/pkg && npm run wipe --prefix=./packages/utils",
+    "rm": "rm -rf node_modules package-lock.json",
     "install": "npm i --prefix=./main && npm i --prefix=./packages/pkg && npm i --prefix=./packages/utils",
     "build": "npm run compile:utils && npm run compile:pkg && npm run build:main",
     "watch": "concurrently \"npm run build:w:main\" \"npm run compile:w:pkg\" \"npm run compile:w:utils\"",
     "init": "npm run wipe && npm run install && npm run build",
-    "dev": "concurrently \"npm run watch\" \"npm run run\""
+    "dev": "concurrently \"npm run watch\" \"npm run run\"",
+    "test": "npm run rm && npm i && npm run init && npm run dev",
+    "________": "________",
+    "clean:lib": "lerna run --parallel clean",
+    "fresh": "lerna clean && npm run bootstrap",
+    "bootstrap": "lerna bootstrap --hoist",
+    "yalc:publish": "npx lerna run --parallel yalc:publish",
+    "start:fresh": "npm run fresh && lerna run --parallel start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^5.2.0"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "npm-safe-install": "^1.1.0",
+    "yalc": "^1.0.0-pre.36"
   }
 }

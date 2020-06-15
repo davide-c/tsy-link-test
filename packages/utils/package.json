@@ -4,13 +4,16 @@
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "private": true,
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "npm run clean && tsc -p tsconfig.json",
     "watch": "tsc -w --preserveWatchOutput -p tsconfig.json",
+    "start": "tsc -p tsconfig.build.json -w",
     "compile": "tsc -p tsconfig.build.json",
     "compile:watch": "tsc -w --preserveWatchOutput -p tsconfig.build.json",
     "clean": "rm -rf ./lib",
-    "wipe": "npm run clean && rm -rf node_modules && rm -f package-lock.json"
+    "wipe": "npm run clean && rm -rf node_modules && rm -f package-lock.json",
+    "yalc:publish": "yalc publish --private"
   },
   "author": "",
   "license": "ISC",
